@@ -1,0 +1,15 @@
+<settings>
+	<OSCSenderSettingsAudio ip="127.0.0.1" port="6000"/>
+	<OSCSenderSettingsInteraction ip="127.0.0.1" port="6001"/>
+	
+	<FBO_CONFIG  width="960" height="240" />
+    <BG_LEARN  timeout="4.0" />
+	
+	<CAMs listCams = "0">
+		<CAM id="0" drawX="60"  drawY="120" rot="0" bus="250" port="3" address="5" undistort="false"/>
+		<!--CAM id="1" drawX="300"  drawY="120" rot="0" bus="250" port="3" address="3"/-->
+		<!--CAM id="1" drawX="300"  drawY="120" rot="0" registered_guid="1"/>
+        <CAM id="2" drawX="600"  drawY="120" rot="0" registered_guid="2"/-->
+		
+	</CAMs>
+</settings>
