@@ -355,6 +355,13 @@ void ofApp::keyPressed(int key){
             case 'g':
                 this->drawGUI = !this->drawGUI;
                 break;
+            case 's':
+                for (int i = 0; i < cantCameras; i++) {
+                    pseyes[i]->saveSettings();
+                }
+
+                this->guiSender.saveToFile("settings.xml");
+                break;
         }
     }
 }
@@ -494,9 +501,9 @@ void ofApp::blobDeleted(ofxBlob &_blob){
 
 void ofApp::sendBlobInformation(string event, int blobId, ofVec2f blobPos) {
     
-    blobPos.x = blobPos.x/fbo.getWidth();
-    blobPos.y = blobPos.y/fbo.getHeight();
-    blobPos = remapBlobIndexes(blobPos);
+    //blobPos.x = blobPos.x/fbo.getWidth();
+    //blobPos.y = blobPos.y/fbo.getHeight();
+    //blobPos = remapBlobIndexes(blobPos);
 
     // sending
     

@@ -37,6 +37,8 @@ public:
     void drawGUI();
     void updateCamFromGUI();
     
+    void saveSettings();
+    
     // GUI controls
     ofxFloatSlider xPos;
     ofxFloatSlider yPos;

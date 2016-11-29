@@ -72,7 +72,7 @@ PSEyeWrapper::PSEyeWrapper(int deviceId, int posX, int posY, int rotZ, int camWi
     gui.add(brigthness.setup("Brightness",0,0,255));
     gui.add(contrast.setup("Contrast",0,0,255));
     
-    gui.loadFromFile("settings.xml");
+    gui.loadFromFile("settings_" + cameraName + ".xml");
     
     prevGain=gain;
     prevBrigthness=brigthness;
@@ -166,7 +166,7 @@ PSEyeWrapper::PSEyeWrapper(int busNumber, int portNumber, int posX, int posY, in
     gui.add(brigthness.setup("Brightness",0,0,255));
     gui.add(contrast.setup("Contrast",0,0,255));
     
-    gui.loadFromFile("settings.xml");
+    gui.loadFromFile("settings_" + cameraName + ".xml");
     
     prevGain=gain;
     prevBrigthness=brigthness;
@@ -319,6 +319,10 @@ void PSEyeWrapper::horizontalFlipChanged(bool & _hFlip){
 
 void PSEyeWrapper::verticalFlipChanged(bool & _vFlip){
     this->camera->getGrabber<ofxPS3EyeGrabber>()->setVerticalFlip(_vFlip);
+}
+
+void PSEyeWrapper::saveSettings(){
+    this->gui.saveToFile("settings_" + camName + ".xml");
 }
 
 

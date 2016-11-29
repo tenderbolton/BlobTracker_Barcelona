@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "838977F7F98993A99BE2386FCA8E3D28A93CF650",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D94E431DB4557D28AAA59361C6EC9EBE1EC12BBF" : 0,
+    "6116060B9B43ED41429AE056D680B0BE4D4D9659" : 0,
+    "37526DA425E5430474A14FBFA1BC4525160B5FC1" : 0,
+    "838977F7F98993A99BE2386FCA8E3D28A93CF650" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "38A957E4-E314-4EEB-92AB-4B6D71C872CD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D94E431DB4557D28AAA59361C6EC9EBE1EC12BBF" : "..\/..\/addons\/ofxBlobTracker",
+    "6116060B9B43ED41429AE056D680B0BE4D4D9659" : "..\/..\/addons\/ofxPS3EyeGrabber",
+    "37526DA425E5430474A14FBFA1BC4525160B5FC1" : "..\/..\/addons\/ofxCv",
+    "838977F7F98993A99BE2386FCA8E3D28A93CF650" : "BlobTracker_Barcelona\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BlobTracker_Barcelona",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BlobTracker_Barcelona.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kylemcdonald\/ofxCv.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "37526DA425E5430474A14FBFA1BC4525160B5FC1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tenderbolton\/ofxPSEyeGrabber_Barcelona.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6116060B9B43ED41429AE056D680B0BE4D4D9659"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tenderbolton\/BlobTracker_Barcelona.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "838977F7F98993A99BE2386FCA8E3D28A93CF650"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/patriciogonzalezvivo\/ofxBlobTracker.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D94E431DB4557D28AAA59361C6EC9EBE1EC12BBF"
+    }
+  ]
+}

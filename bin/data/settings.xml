@@ -1,61 +1,13 @@
-<PSEYE_0>
-	<X>126.667</X>
-	<Y>0</Y>
-	<Rot>0</Rot>
-	<HFlip>0</HFlip>
-	<VFlip>0</VFlip>
-	<Auto_Gain>0</Auto_Gain>
-	<Gain>10</Gain>
-	<Auto_White_Balance>0</Auto_White_Balance>
-	<RBalance>127</RBalance>
-	<GBalance>127</GBalance>
-	<BBalance>127</BBalance>
-	<Exposure>128</Exposure>
-	<Brightness>48</Brightness>
-	<Contrast>52</Contrast>
-<PSEYE_0/>
-<Sender>
-		<Send_blobs_>0</Send_blobs_>
-		<Press_space_to_learn_background/>
-		<Threshold>26</Threshold>
-		<FrameRate>39</FrameRate>
-	<MinArea>100</MinArea>
-		<MaxArea>26800</MaxArea>
-	<MinYIndex>0.0933333</MinYIndex>
-		<MaxYIndex>0.726667</MaxYIndex>
-		<MinXIndex>0.136667</MinXIndex>
-		<MaxXIndex>0.8</MaxXIndex>
-	</Sender>
-<PSEYE_1>
-		<X>633.333</X>
-		<Y>0</Y>
-		<Rot>0</Rot>
-		<HFlip>0</HFlip>
-		<VFlip>0</VFlip>
-		<Auto_Gain>0</Auto_Gain>
-		<Gain>10</Gain>
-		<Auto_White_Balance>1</Auto_White_Balance>
-		<RBalance>127</RBalance>
-		<GBalance>127</GBalance>
-		<BBalance>127</BBalance>
-		<Exposure>34</Exposure>
-		<Brightness>30</Brightness>
-		<Contrast>34</Contrast>
-	</PSEYE_1>
 <group>
-		<X>0</X>
-		<Y>0</Y>
-		<Rot>0</Rot>
-		<HFlip>0</HFlip>
-		<VFlip>0</VFlip>
-		<Auto_Gain>0</Auto_Gain>
-		<Gain>10</Gain>
-		<Auto_White_Balance>0</Auto_White_Balance>
-		<RBalance>127</RBalance>
-		<GBalance>127</GBalance>
-		<BBalance>127</BBalance>
-		<Exposure>40</Exposure>
-		<Brightness>43</Brightness>
-		<Contrast>198</Contrast>
-	</group>
-</PSEYE_0>
+	<Send_blobs_>0</Send_blobs_>
+	<Press_space_to_learn_background/>
+	<Threshold>80</Threshold>
+	<MinArea>20</MinArea>
+	<MaxArea>25600</MaxArea>
+	<MinYIndex>0</MinYIndex>
+	<MaxYIndex>1</MaxYIndex>
+	<MinXIndex>0</MinXIndex>
+	<MaxXIndex>1</MaxXIndex>
+	<FrameRate>20</FrameRate>
+<group/>
+</group>
