@@ -123,6 +123,27 @@ void ofApp::loadFromXML() {
                 this->destinationInteractionPort = port;
             }
             
+            //Tracker Configuration
+            int numTracker = XML.getNumTags("Tracker");
+            
+            if(numTracker==0){
+                loadOK = false;
+                throw std::runtime_error(std::string("No Tracker defined in the XML! Please configure the Tracker and restart application."));
+            }
+            
+            
+            if (numTracker > 0) {
+                this->maxBlobs = ofToInt(XML.getAttribute("Tracker", "maxBlobs", "10", 0));
+                this->assignedIds = new int[maxBlobs]();
+                
+                //clearing all assigned ids
+                for(int i=0; i<maxBlobs; i++){
+                    assignedIds[i] = -1;
+                }
+                
+            }
+
+            
             //FBO Configuration
             numFBO = XML.getNumTags("FBO_CONFIG");
             
@@ -482,21 +503,63 @@ ofVec2f ofApp::remapBlobIndexes(ofVec2f blobPos){
 
 
 void ofApp::blobAdded(ofxBlob &_blob){
-    if(this->sendBlobs){
-        sendBlobInformation("new", _blob.id, ofVec2f(_blob.centroid.x,_blob.centroid.y));
+    
+    //trying to assing the blob to a slot in the assignedIds
+    
+    bool slotFound = false;
+    int selectedSlot = -1;
+    int cont = 0;
+    while (!slotFound && cont<this->maxBlobs){
+        if(this->assignedIds[cont]==-1){
+            slotFound = true;
+            selectedSlot = cont;
+            this->assignedIds[cont] = _blob.id;
+        }else{
+            cont++;
+        }
+    }
+    
+    if(this->sendBlobs && selectedSlot!=-1){
+        sendBlobInformation("new", selectedSlot, ofVec2f(_blob.centroid.x,_blob.centroid.y));
     }
 }
 
 void ofApp::blobMoved(ofxBlob &_blob){
-    if(this->sendBlobs){
+    
+    int selectedSlot = findSlot(_blob.id);
+    
+    if(this->sendBlobs && selectedSlot!=-1){
         sendBlobInformation("updated", _blob.id, ofVec2f(_blob.centroid.x,_blob.centroid.y));
     }
 }
 
 void ofApp::blobDeleted(ofxBlob &_blob){
+    
+    int selectedSlot = findSlot(_blob.id);
+    this->assignedIds[selectedSlot] = -1;
+    
     if(this->sendBlobs){
-        sendBlobInformation("deleted", _blob.id, ofVec2f(_blob.centroid.x,_blob.centroid.y));
+        sendBlobInformation("deleted", selectedSlot, ofVec2f(_blob.centroid.x,_blob.centroid.y));
     }
+}
+
+int ofApp::findSlot(int blobId){
+    
+    bool slotFound = false;
+    int selectedSlot = -1;
+    int cont = 0;
+    
+    while (!slotFound && cont<this->maxBlobs){
+        if(this->assignedIds[cont]==blobId){
+            slotFound = true;
+            selectedSlot = cont;
+        }else{
+            cont++;
+        }
+    }
+    
+    return selectedSlot;
+
 }
 
 void ofApp::sendBlobInformation(string event, int blobId, ofVec2f blobPos) {

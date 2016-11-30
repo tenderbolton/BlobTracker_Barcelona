@@ -1,16 +1,17 @@
 <group>
-	<X>0</X>
-	<Y>0</Y>
-	<Rot>0</Rot>
+	<X>240</X>
+	<Y>320</Y>
+	<Rot>-90</Rot>
 	<HFlip>0</HFlip>
 	<VFlip>0</VFlip>
-	<Auto_Gain>1</Auto_Gain>
-	<Gain>10</Gain>
-	<Auto_White_Balance>1</Auto_White_Balance>
+	<Auto_Gain>0</Auto_Gain>
+	<Gain>12</Gain>
+	<Auto_White_Balance>0</Auto_White_Balance>
 	<RBalance>127</RBalance>
 	<GBalance>127</GBalance>
 	<BBalance>127</BBalance>
-	<Exposure>0</Exposure>
-	<Brightness>0</Brightness>
-	<Contrast>0</Contrast>
+	<Exposure>80</Exposure>
+	<Brightness>57</Brightness>
+	<Contrast>139</Contrast>
+<group/>
 </group>

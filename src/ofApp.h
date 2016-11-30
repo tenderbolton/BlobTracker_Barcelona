@@ -7,6 +7,7 @@
 #include "ofxOpenCv.h"
 #include "ofxBlobTracker.h"
 #include "PSEyeWrapper.hpp"
+#include <vector>
 
 class ofApp : public ofBaseApp{
 
@@ -34,6 +35,8 @@ class ofApp : public ofBaseApp{
         void blobAdded(ofxBlob &_blob);
         void blobMoved(ofxBlob &_blob);
         void blobDeleted(ofxBlob &_blob);
+    
+        int findSlot(int blobId);
     
         ofxOscSender sender;
         string destinationIP;
@@ -82,6 +85,10 @@ class ofApp : public ofBaseApp{
     
         bool loadOK;
         string errorMessage;
+    
+        int* assignedIds;
+    
+        int maxBlobs;
     
         //detected blob pos
         //ofVec2f blobPos;

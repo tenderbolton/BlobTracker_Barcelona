@@ -1,7 +1,7 @@
 <settings>
 	<OSCSenderSettingsAudio ip="127.0.0.1" port="6000"/>
 	<OSCSenderSettingsInteraction ip="127.0.0.1" port="12345"/>
-	
+	<Tracker maxBlobs="10"/>
 	<FBO_CONFIG  width="480" height="320" />
     <BG_LEARN  timeout="4.0" />
 	
