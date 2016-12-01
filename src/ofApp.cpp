@@ -53,7 +53,7 @@ void ofApp::setup(){
         guiSender.add(sendBlobs.setup("Send blobs ", false));
         guiSender.add(texto.setup("Press space to learn background",""));
         guiSender.add(threshold.setup("Threshold",80,0,200));
-        guiSender.add(minArea.setup("MinArea",20,0,30000));
+        guiSender.add(minArea.setup("MinArea",10,0,500));
         guiSender.add(maxArea.setup("MaxArea",25600,0,40000));
         guiSender.add(minYIndex.setup("MinYIndex",0.0f,0.0f,1.0f));
         guiSender.add(maxYIndex.setup("MaxYIndex",1.0f,0.0f,1.0f));
@@ -529,7 +529,7 @@ void ofApp::blobMoved(ofxBlob &_blob){
     int selectedSlot = findSlot(_blob.id);
     
     if(this->sendBlobs && selectedSlot!=-1){
-        sendBlobInformation("updated", _blob.id, ofVec2f(_blob.centroid.x,_blob.centroid.y));
+        sendBlobInformation("updated", selectedSlot, ofVec2f(_blob.centroid.x,_blob.centroid.y));
     }
 }
 
