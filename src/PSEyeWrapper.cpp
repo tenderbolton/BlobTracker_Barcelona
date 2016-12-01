@@ -278,10 +278,17 @@ void PSEyeWrapper::updateCamFromGUI(){
 
 void PSEyeWrapper::draw() {
     if(doUndistort){
+<<<<<<< HEAD
         undistorted.draw(0,0,160,120);
     }
     else{
         camera->draw(0,0,160,120);
+=======
+        undistorted.draw(0,0, 160,120);
+    }
+    else{
+        camera->draw(0,0, 160, 120);
+>>>>>>> 3a8888ee18ad01b5f7c2340aee94440f39f1927d
     }
 }
 

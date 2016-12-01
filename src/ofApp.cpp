@@ -235,9 +235,38 @@ void ofApp::loadFromXML() {
                 throw std::runtime_error(std::string(listing));
             }
             
+            //Mask Configuration
+            int numMask = XML.getNumTags("MASK");
             
+            if(numMask==0){
+                loadOK = false;
+                throw std::runtime_error(std::string("No mask defined in the XML! Please configure mask and restart application."));
+            }
+        
+            XML.pushTag("MASK", 0);
+                    
+            int numPoints = XML.getNumTags("Point");
+            
+            try {
+                
+                for (int i = 0; i < numPoints; i++) {
+                    draggableVertex dV;
+                    dV.x = ofToFloat(XML.getAttribute("Point", "x", "0", i));
+                    dV.y = ofToFloat(XML.getAttribute("Point", "y", "0", i));
+                    
+                    curveVertices.push_back(dV);
+                }
+                
+            } catch (std::exception const& e){
+                        loadOK = false;
+                        throw std::runtime_error(std::string("Oops! Something went wrong while initializing the mask. Please check the XML mask definitions."));
+            }
             XML.popTag();
         }
+        
+            
+        XML.popTag();
+        
         
     }
     else {
@@ -267,6 +296,9 @@ void ofApp::update(){
             pseyes[i]->draw();
             ofPopMatrix();
         }
+        ofSetHexColor(0x000000);
+        drawMask();
+        ofSetHexColor(0xffffff);
         fbo.end();
         
         ofPixels p = imageJoined->getPixels();
@@ -437,7 +469,7 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+  
 }
 
 //--------------------------------------------------------------
@@ -447,7 +479,7 @@ void ofApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
@@ -577,5 +609,35 @@ void ofApp::sendBlobInformation(string event, int blobId, ofVec2f blobPos) {
     m.addFloatArg(blobPos.y);
     sender.sendMessage(m);
     senderInteraction.sendMessage(m);
+}
+
+void ofApp::drawMask(){
+    ofBeginShape();
+    
+    for (int i = 0; i < curveVertices.size(); i++){
+        
+        
+        // sorry about all the if/states here, but to do catmull rom curves
+        // we need to duplicate the start and end points so the curve acutally
+        // goes through them.
+        
+        // for i == 0, we just call the vertex twice
+        // for i == nCurveVertices-1 (last point) we call vertex 0 twice
+        // otherwise just normal ofCurveVertex call
+        
+        if (i == 0){
+            ofCurveVertex(curveVertices[0].x, curveVertices[0].y); // we need to duplicate 0 for the curve to start at point 0
+            ofCurveVertex(curveVertices[0].x, curveVertices[0].y); // we need to duplicate 0 for the curve to start at point 0
+        } else if (i == curveVertices.size()-1){
+            ofCurveVertex(curveVertices[i].x, curveVertices[i].y);
+            ofCurveVertex(curveVertices[0].x, curveVertices[0].y);	// to draw a curve from pt 6 to pt 0
+            ofCurveVertex(curveVertices[0].x, curveVertices[0].y);	// we duplicate the first point twice
+        } else {
+            ofCurveVertex(curveVertices[i].x, curveVertices[i].y);
+        }
+    }
+    
+    ofEndShape();
+
 }
 

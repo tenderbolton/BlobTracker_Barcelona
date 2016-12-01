@@ -9,6 +9,16 @@
 #include "PSEyeWrapper.hpp"
 #include <vector>
 
+typedef struct {
+    
+    float 	x;
+    float 	y;
+    bool 	bBeingDragged;
+    bool 	bOver;
+    float 	radius;
+    
+}draggableVertex;
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -35,6 +45,8 @@ class ofApp : public ofBaseApp{
         void blobAdded(ofxBlob &_blob);
         void blobMoved(ofxBlob &_blob);
         void blobDeleted(ofxBlob &_blob);
+    
+        void drawMask();
     
         int findSlot(int blobId);
     
@@ -92,5 +104,9 @@ class ofApp : public ofBaseApp{
     
         //detected blob pos
         //ofVec2f blobPos;
+    
+        //central mask
+    
+        vector<draggableVertex> curveVertices;
 		
 };
