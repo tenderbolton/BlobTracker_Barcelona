@@ -2,14 +2,23 @@
 	<OSCSenderSettingsAudio ip="127.0.0.1" port="6000"/>
 	<OSCSenderSettingsInteraction ip="127.0.0.1" port="12345"/>
 	<Tracker maxBlobs="10"/>
-	<FBO_CONFIG  width="480" height="320" />
+	<FBO_CONFIG  width="240" height="160" />
     <BG_LEARN  timeout="4.0" />
 	
 	<CAMs listCams = "0">
-		<CAM id="0" drawX="60"  drawY="120" rot="0" bus="253" port="4" address="4" undistort="false"/>
-		<CAM id="1" drawX="300"  drawY="120" rot="0" bus="250" port="4" address="6"/>
+		<CAM id="0" drawX="60"  drawY="120" rot="0" bus="250" port="3" address="5" undistort="false"/>
+		<!--CAM id="1" drawX="300"  drawY="120" rot="0" bus="250" port="4" address="6"/-->
 		<!--CAM id="1" drawX="300"  drawY="120" rot="0" registered_guid="1"/>
         <CAM id="2" drawX="600"  drawY="120" rot="0" registered_guid="2"/-->
 		
 	</CAMs>
+
+	<MASK>
+		<Point x="100" y="50" />
+		<Point x="110" y="40" />
+		<Point x="120" y="50" />
+		<Point x="120" y="100" />
+		<Point x="110" y="110" />
+		<Point x="100" y="100" />
+	</MASK>
 </settings>
